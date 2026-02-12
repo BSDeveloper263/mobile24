@@ -22,15 +22,7 @@ const Home = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Auto rotate featured phones
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentPhoneIndex((prev) => (prev + 1) % heroImages.main.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const handleBrandClick = (brandId) => navigate(`/brand/${brandId}`);
+ 
   
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -76,6 +68,17 @@ const Home = () => {
     },
     bgPhone: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&auto=format&fit=crop&q=80',
   };
+
+
+   // Auto rotate featured phones
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPhoneIndex((prev) => (prev + 1) % heroImages.main.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [heroImages.main.length]);
+
+  // const handleBrandClick = (brandId) => navigate(`/brand/${brandId}`);
 
   // Brand logos with images
   const brandLogos = {
