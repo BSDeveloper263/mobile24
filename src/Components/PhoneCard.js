@@ -15,7 +15,7 @@ const PhoneCard = ({ phone }) => {
   }, []);
 
   const isMobile = width <= 600;
-  const isTablet = width <= 992;
+  // const isTablet = width <= 992;
 
   const styles = {
     card: {
